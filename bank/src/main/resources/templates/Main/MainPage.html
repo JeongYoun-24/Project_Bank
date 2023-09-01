@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	  layout:decorate="~{layout/bank}">
+
+
+
+<head>
+
+</head>
+<body>
+<div layout:fragment="content" class="m-3 p-3">
+	<div class="container">
+
+
+
+		<div class="row mt-3 w-75 m-auto">
+
+			<div class="col">
+
+				<div class="container">
+						<button class="btn" id="open">계좌열기</button>
+
+
+					<div class="border rounded rounded-4 mt-5 " id="accounts">
+						<div class="mx-3">
+							이름 의 통장
+						</div>
+						<div class="mx-3">
+							잔액 10000 원
+
+						</div>
+						<div class="d-flex justify-content-end">
+							<button class="rounded rounded-4 btn btn-outline-primary">이체</button>
+							<button class="rounded rounded-4 btn btn-outline-primary">카드</button>
+						</div>
+
+					</div>
+
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+</body>
+<script>
+	$(function(){
+		$('#accounts').heid()
+
+		$('#open').click(function(){
+
+
+		})
+
+
+	})
+
+</script>
+
+
+</html>

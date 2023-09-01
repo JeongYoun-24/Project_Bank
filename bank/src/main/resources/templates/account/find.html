@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	  layout:decorate="~{layout/bank}">
+
+
+
+<head>
+<style>
+	input[type='number']::-webkit-outer-spin-button,
+	input[type='number']::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div layout:fragment="content" class="m-3 p-3">
+	<div class="container" id="sss">
+
+			<div class="" id="pwd">
+				<h3 class="text-center">계좌 비밀번호 입력</h3>
+				<div class="d-flex justify-content-center">
+					<input type="password" class="form-control" style="width: 100px;" name="password" id="password" maxlength="4" >
+					<button class="btn border border-black" id="pwdBtn">확인</button>
+					<input type="hidden" th:value="${accountDTO.accountNumber}" id="number">
+				</div>
+				
+
+
+			</div>
+
+
+
+
+		<div class="row mt-3 w-75 m-auto">
+
+			<div class="col">
+
+
+
+				<div class="container" id="Acount">
+					<button class="btn" id="on">계좌 감추기</button>
+					<button class="btn" id="off">계좌 보기</button>
+					<span>계좌 개설일자</span>
+					[[${#temporals.format(accountDTO.createDate,'yyyy-MM-dd')}]]
+					<div id="accounts">
+					<div class="border rounded rounded-4 mt-5 " >
+						<div class="mx-3">
+							<input type="hidden" id="name" th:value="${accountDTO.getMember.getName}">
+							<input type="hidden" id="accountNumberId" th:value="${accountDTO.accountNumber}">
+
+							<span>계좌번호 : [[${accountDTO.accountNumber}]]</span>
+							[[${accountDTO.getMember.getName}]] 의 통장
+						</div>
+						<div class="mx-3">
+							<p><em> [[${#numbers.formatInteger(accountDTO.balance,3,'COMMA')}]]</em> <span>원</span></p>
+
+
+						</div>
+						<div class="d-flex justify-content-end">
+							<button class="rounded rounded-4 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">이체</button>
+							<button class="rounded rounded-4 btn btn-outline-primary"data-bs-toggle="modal" data-bs-target="#exampleModal2">입금</button>
+							<button class="rounded rounded-4 btn btn-outline-primary"><a th:href="@{'/history/list/'+${accountDTO.accountNumber}}">내역</a> </button>
+						</div>
+
+					</div>
+				</div>
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+		<!-- 모달창-->
+		<div>
+
+
+			<!-- 이체 -->
+			<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel1">이체 하기</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body ">
+							<div class="d-flex justify-content-center">
+								<input type="text" name="accountNumber" id="accountNumber" placeholder="받는사람의 계좌 입력">
+							</div>
+							<div class="d-flex justify-content-center">
+								<input type="number"  name="balance" id="balance" placeholder="금액">
+							</div>
+
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary" id="transferBtn">이체</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 입금 -->
+			<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel2">입금하기</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div>
+								<div class="d-flex justify-content-center">
+									<input type="text"  name="balance2" id="balance2" placeholder="금액">
+								</div>
+
+
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary" id="balanceBtn">입금</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+		integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+<script layout:fragment="script"    th:inline="javascript">
+	$(function(){
+<!--		$('#Acount').hide()-->
+
+		$('#on').click(function(){
+		console.log("감추기")
+
+			$('#accounts').hide()
+			$('#off').show()
+			$('#on').hide()
+		})
+		$('#off').click(function(){
+		console.log("보이기")
+			$('#accounts').show()
+			$('#on').show()
+			$('#off').hide()
+
+		})
+
+
+		// 비밀번호 인증
+		$('#pwdBtn').click(function(){
+			var data = {
+                password : $('#password').val(),
+				accountNumber : $('#number').val()
+                };
+			console.log(data)
+
+			$.ajax({
+			type : "post",
+			url : "/account/pwd",
+			async : true,
+			data : JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			success: function(result, status){
+				if(result == 1){
+					alert("비밀번호 확인완료")
+
+					$('#Acount').show()
+					$('#pwd').hide()
+				}
+
+				console.log(result);
+				console.log(status);
+
+
+			},
+			error: function(result, status){
+				if(status != null){
+					alert("비밀번호 오류")
+				}
+			},
+			complete : function(result, status){
+
+			}
+		})
+
+	})
+
+
+		//계좌 입금
+		$('#balanceBtn').click(function(){
+				var balance = $('#balance2').val()
+
+				var data = {
+                balance : $('#balance2').val(),
+                name : $('#name').val(),
+                 accountNumber : $('#accountNumberId').val()
+
+                };
+			console.log(data)
+
+			$.ajax({
+			type : "post",
+			url : "/account/balance",
+			async : true,
+			data : JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			success: function(result, status){
+					alert(result+"입금성공 했습니다.")
+						location.href="/account/find"
+
+			},
+			error: function(result, status){
+
+
+
+			},
+			complete : function(result, status){
+
+
+
+
+			}
+
+
+		})
+
+	})
+			
+	//계좌 이체
+		$('#transferBtn').click(function(){
+				var balance = $('#balance2').val()
+
+				var data = {
+                balance : $('#balance').val(),
+                name : $('#name').val(),
+                 accountNumber : $('#accountNumber').val(),
+                 accountNumberId : $('#accountNumberId').val()
+                };
+			console.log(data)
+
+			$.ajax({
+			type : "post",
+			url : "/account/transfer",
+			async : true,
+			data : JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			success: function(result, status){
+
+
+			},
+			error: function(result, status){
+
+
+
+			},
+			complete : function(result, status){
+
+
+
+
+			}
+
+
+		})
+
+	})
+
+
+
+
+
+	})
+
+</script>
+
+
+</html>

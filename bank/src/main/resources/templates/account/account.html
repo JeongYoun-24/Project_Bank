@@ -1,0 +1,190 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<div class="container">
+
+
+	<div class="row mt-3 w-75 m-auto">
+
+		<div class="col">
+
+            <div class="container">
+                    
+                <div class="border border-black rounded rounded-4 mt-5 ">
+                    <div >
+                        <h3 class="text-center">계좌 생성페이지</h3>
+                    </div>
+                    <div class="text-center mt-3">
+						<input type="hidden" th:value="${#authentication.principal.username}" id="memberId">
+                      <span class="">본인인증</span> 이메일 
+                      <input type="email" name="email" id="email" > 
+                      <button class="btn btn-outline-dark" style="height: 35px;" id="emailBtn">확인</button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button class="btn border border-1 border-black" id="btn1">계좌 생성</button>
+                        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn border border-1 border-black" >계좌 생성</button>
+
+                    </div>
+                    
+
+                </div>
+                
+
+
+            </div>
+
+			<!-- Button trigger modal -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">계좌 비밀번호 입력창</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div>
+								<h3 class="text-center">계좌비밀번호 입력</h3>
+								<div class="d-flex justify-content-center">
+                                    <input type="password" maxlength="4" id="password"  placeholder="비밀번호 입력하세요">
+
+                                </div>
+                                <div class="d-flex justify-content-center mt-1">
+                                    <input type="password" maxlength="4" id="password2" placeholder="비밀번호 재입력하세요">
+
+                                </div>
+
+
+							</div>
+
+
+						</div>
+						<div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="accountBtn">확인</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeBtn">취소</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" 
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+    crossorigin="anonymous"></script>
+<script>
+$(function(){
+    $('#closeBtn').click(function(){
+        $('#password').val('')
+        $('#password2').val('')
+
+    })
+
+
+	$('#accountBtn').hide()
+    $('#emailBtn').click(function(){
+       
+        var email = $('#email').val();
+        var memberId = $('#memberId').val();
+
+		var data = {
+                email : $('#email').val(),
+                memberId: $('#memberId').val()
+
+                };
+
+
+        $.ajax({
+            type : "POST",
+            async: true,
+            url : "/account/email",
+            data: JSON.stringify(data),
+            contentType : "application/json",
+            success : function(result, status){
+					console.log(result);
+					console.log(status);
+
+            },
+            error : function(result, status){
+            		console.log(result);
+					console.log(status);
+            },
+            complete : function(result, status){}
+
+
+        })
+        $('#btn1').hide()
+		$('#accountBtn').show()
+
+
+    })
+
+
+	$('#accountBtn').click(function(){
+	var data = {
+                email : $('#email').val(),
+                password : $('#password').val(),
+                memberId: $('#memberId').val()
+                };
+
+
+		console.log("계좌생성 버튼")
+		 $.ajax({
+            type : "POST",
+            async: true,
+            url : "/account/register",
+            data: JSON.stringify(data),
+            contentType : "application/json",
+            success : function(result, status){
+					console.log(result);
+					console.log(status);
+
+            },
+            error : function(result, status){
+            		console.log(result);
+					console.log(status);
+            },
+            complete : function(result, status){}
+
+
+        })
+
+
+
+	})
+
+
+
+
+
+})
+
+
+
+</script>
+
+</html>
