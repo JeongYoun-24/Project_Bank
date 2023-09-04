@@ -7,7 +7,7 @@
 
 
 <head>
-<style>
+	<style>
 	input[type='number']::-webkit-outer-spin-button,
 	input[type='number']::-webkit-inner-spin-button {
 	  -webkit-appearance: none;
@@ -23,36 +23,37 @@
 <div layout:fragment="content" class="m-3 p-3">
 	<div class="container" id="sss">
 
-<!--			<div class="" id="pwd">-->
-<!--				<h3 class="text-center">계좌 비밀번호 입력</h3>-->
-<!--				<div class="d-flex justify-content-center">-->
-<!--					<input type="password" class="form-control" style="width: 100px;" name="password" id="password" maxlength="4" >-->
-<!--					<button class="btn border border-black" id="pwdBtn">확인</button>-->
-<!--&lt;!&ndash;					<input type="hidden" th:value="${accountDTO.accountNumber}" id="number">&ndash;&gt;-->
-<!--				</div>-->
-<!--				-->
+		<!--			<div class="" id="pwd">-->
+		<!--				<h3 class="text-center">계좌 비밀번호 입력</h3>-->
+		<!--				<div class="d-flex justify-content-center">-->
+		<!--					<input type="password" class="form-control" style="width: 100px;" name="password" id="password" maxlength="4" >-->
+		<!--					<button class="btn border border-black" id="pwdBtn">확인</button>-->
+		<!--&lt;!&ndash;					<input type="hidden" th:value="${accountDTO.accountNumber}" id="number">&ndash;&gt;-->
+		<!--				</div>-->
+		<!--				-->
 
 
-<!--			</div>-->
-			<div>
-				<h3 class="text-center">[[${account.accountNumber}]]</h3>
-				<h5 class="text-center">[[${account.member.name}]] 님의계좌</h5>
+		<!--			</div>-->
+		<div>
+			<h3 class="text-center">[[${account.accountNumber}]]</h3>
+			<h5 class="text-center">[[${account.member.name}]] 님의계좌</h5>
+			<h5 class="text-center">잔액 [[${#numbers.formatInteger(account.balance, 3, 'COMMA') + '원'}]]</h5>
 
-			</div>
-				<input type="hidden" th:value="${account.accountNumber}" id="accountNumber">
-				<input type="hidden" th:value="${page}" id="page">
+		</div>
+		<input type="hidden" th:value="${account.accountNumber}" id="accountNumber">
+		<input type="hidden" th:value="${page}" id="page">
 
 
-			<form class="d-flex justify-content-end" id="searchForm">
-				<select class="d-flex justify-content-end" id="size" name="size">
-					<option value="10">10</option>
-					<option value="30">30</option>
-					<option value="50">50</option>
+		<form class="d-flex justify-content-end" id="searchForm">
+			<select class="d-flex justify-content-end" id="size" name="size">
+				<option value="10">10</option>
+				<option value="30">30</option>
+				<option value="50">50</option>
 
-				</select>
+			</select>
 
-			</form>
-				<button id="btn">클릭</button>
+		</form>
+		<!--				<button id="btn">클릭</button>-->
 
 
 
@@ -77,11 +78,17 @@
 								</tr>
 								</thead>
 								<tbody>
-								<tr th:each="historyList : ${historyList}">
-									<th scope="row">1</th>
+								<tr th:each="historyList,hStat : ${historyList}">
+									<th scope="row" th:text="${hStat.count}"></th>
 									<td>[[${#temporals.format(historyList.updateDate,'yyyy-MM-dd')}]]</td>
 									<td th:text="${historyList.memberName}"></td>
-									<td  th:text="${historyList.balance}" >
+									<td  >
+										[[${#numbers.formatInteger(historyList.balance, 3, 'COMMA') + '원'}]]
+										<span th:text="${#numbers.formatInteger(historyList.saveBalance, 3, 'COMMA') + '원'}" class="d-flex ">
+
+										</span>
+
+
 									</td>
 									<td  th:text="${historyList.chk}">
 									</td>

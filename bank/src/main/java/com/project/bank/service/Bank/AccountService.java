@@ -1,6 +1,7 @@
 package com.project.bank.service.Bank;
 
 import com.project.bank.dto.AccoutDTO;
+import com.project.bank.dto.HistoryDTO;
 
 public interface AccountService {
 
@@ -14,8 +15,8 @@ public interface AccountService {
 
     public int pwd(String password,String accountNumber);   // 계좌 비밀번호 확인
 
-
+    public int loanAccount(HistoryDTO historyDTO, String accountNumber);                                // 대출 받은금액 계좌 내역에 생성
     
-    
+    public AccoutDTO selectAccountMember(String name);    // 유저 이름으로 계좌 조회
     
 }

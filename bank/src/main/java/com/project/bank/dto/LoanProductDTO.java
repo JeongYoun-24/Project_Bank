@@ -1,22 +1,20 @@
-package com.project.bank.entity;
+package com.project.bank.dto;
 
+import com.project.bank.entity.Bank;
+import com.project.bank.entity.LoanProduct;
 import lombok.*;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 
 @Getter
-@Table(name="loan_product")
+@Setter
 @Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class LoanProduct {
+public class LoanProductDTO {
 
-
-    @Id
-    @Column(name="product_no")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long productNo;             // 대출 번호
     private String productName;         // 대출 상품 이름
     private String loanMoney;           // 대출 금액
@@ -24,11 +22,12 @@ public class LoanProduct {
     private String repaymentDate;       // 상환 날짜
 //    private String loanDitail;          // 대출상품 설명
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bank_no")
     private Bank bank;                  // 은행 아이디
 
-
+    private static ModelMapper modelMapper = new ModelMapper();
+    public static LoanProductDTO of(LoanProduct loanProduct){
+        // entity -> dto
+        return modelMapper.map(loanProduct, LoanProductDTO.class);
+    }
 
 }

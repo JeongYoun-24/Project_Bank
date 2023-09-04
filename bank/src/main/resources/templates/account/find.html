@@ -23,17 +23,17 @@
 <div layout:fragment="content" class="m-3 p-3">
 	<div class="container" id="sss">
 
-			<div class="" id="pwd">
+			<!--<div class="" id="pwd">
 				<h3 class="text-center">계좌 비밀번호 입력</h3>
 				<div class="d-flex justify-content-center">
 					<input type="password" class="form-control" style="width: 100px;" name="password" id="password" maxlength="4" >
 					<button class="btn border border-black" id="pwdBtn">확인</button>
 					<input type="hidden" th:value="${accountDTO.accountNumber}" id="number">
 				</div>
-				
 
 
-			</div>
+
+			</div>-->
 
 
 
@@ -66,9 +66,9 @@
 						<div class="d-flex justify-content-end">
 							<button class="rounded rounded-4 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">이체</button>
 							<button class="rounded rounded-4 btn btn-outline-primary"data-bs-toggle="modal" data-bs-target="#exampleModal2">입금</button>
-							<button class="rounded rounded-4 btn btn-outline-primary"><a th:href="@{'/history/list/'+${accountDTO.accountNumber}}">내역</a> </button>
+							<button class="rounded rounded-4 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">내역 </button>
 						</div>
-
+<!--						<a id="historyBtn" th:href="@{'/history/list/'+${accountDTO.accountNumber}}">내역</a>-->
 					</div>
 				</div>
 
@@ -135,6 +135,35 @@
 					</div>
 				</div>
 			</div>
+			<!-- 비밀번호 -->
+			<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel3">입금하기</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div>
+								<div class="d-flex justify-content-center">
+									<div class="" id="pwd">
+										<h3 class="text-center">계좌 비밀번호 입력</h3>
+										<div class="d-flex justify-content-center">
+											<input type="password" class="form-control" style="width: 100px;" name="password" id="password" maxlength="4" >
+<!--											<button class="btn border border-black" id="pwdBtn">확인</button>-->
+											<input type="hidden" th:value="${accountDTO.accountNumber}" id="number">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary" id="history">확인</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 		</div>
@@ -175,7 +204,8 @@
 
 
 		// 비밀번호 인증
-		$('#pwdBtn').click(function(){
+		$('#history').click(function(){
+			var accountNumber = $('#number').val()
 			var data = {
                 password : $('#password').val(),
 				accountNumber : $('#number').val()
@@ -189,15 +219,8 @@
 			data : JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
 			success: function(result, status){
-				if(result == 1){
-					alert("비밀번호 확인완료")
-
-					$('#Acount').show()
-					$('#pwd').hide()
-				}
-
-				console.log(result);
-				console.log(status);
+						alert("인증 성공")
+						location.href="/history/list"+"/"+accountNumber
 
 
 			},
@@ -273,7 +296,8 @@
 			data : JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
 			success: function(result, status){
-
+						alert(result+"이체성공 했습니다.")
+						location.href="/account/find"
 
 			},
 			error: function(result, status){

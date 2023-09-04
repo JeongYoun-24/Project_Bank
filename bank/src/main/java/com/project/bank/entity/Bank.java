@@ -1,24 +1,21 @@
 package com.project.bank.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
+@Setter
 @Table(name="bank")
 @Builder
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Bank {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="bank_no")
     private Long bankNo;
 

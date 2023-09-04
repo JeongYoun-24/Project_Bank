@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout/bank}">
+
+
+
+<head>
+    <style>
+	input[type='number']::-webkit-outer-spin-button,
+	input[type='number']::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div layout:fragment="content" class="m-3 p-3">
+    <div class="container" id="sss">
+
+    <div>
+        <h3>대출 은행</h3>
+
+        <div>
+            [[${bankDTOList}]]
+
+        </div>
+        <div class="row">
+            <table class="table col-6" style="width: 500px; ">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">은행명</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="bankDTOList,bStat : ${bankDTOList}">
+                    <th scope="row" th:text="${bStat.count}"></th>
+                    <td >
+                        <a th:href="@{'/bank/find/'+${bankDTOList.bankName}}" th:text="${bankDTOList.bankName}" style="color: black;"></a>
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="col-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh75x3xsH53OqccEVRKlE18G553FxNvLegvA&usqp=CAU" width="300px" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7myePy1Q9TCAlNCmfKXEI8JAG52U82ShlRQ&usqp=CAU" width="300px" height="300px" >
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+<script layout:fragment="script"    th:inline="javascript">
+	$(function(){
+		$('#size').change(function(){
+			var size = $(this).val()
+			var page = $('#page').val()
+			var accountNumber = $('#accountNumber').val()
+			console.log("체인지"+size);
+
+			location.href="/history/list"+"/"+accountNumber+"/"+page+"/"+size;
+
+
+		})
+		$('#btn').click(function(){
+			console.log("체인지")
+
+		})
+
+	})
+
+</script>
+
+
+</html>

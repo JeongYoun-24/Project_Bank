@@ -34,7 +34,7 @@
                     </div>
                     <div class="d-flex justify-content-center mt-5">
                         <button class="btn border border-1 border-black" id="btn1">계좌 생성</button>
-                        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn border border-1 border-black" >계좌 생성</button>
+                        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn border border-1 border-black" id="btn2" >계좌 생성</button>
 
                     </div>
                     
@@ -98,6 +98,7 @@
     crossorigin="anonymous"></script>
 <script>
 $(function(){
+	$('#btn2').hide()
     $('#closeBtn').click(function(){
         $('#password').val('')
         $('#password2').val('')
@@ -105,7 +106,7 @@ $(function(){
     })
 
 
-	$('#accountBtn').hide()
+
     $('#emailBtn').click(function(){
        
         var email = $('#email').val();
@@ -125,20 +126,34 @@ $(function(){
             data: JSON.stringify(data),
             contentType : "application/json",
             success : function(result, status){
-					console.log(result);
-					console.log(status);
+				$('#btn1').hide()
+				$('#btn2').show()
+					alert("인증성공")
+
 
             },
             error : function(result, status){
-            		console.log(result);
+            		console.log(result.responseText);
 					console.log(status);
+					if(result.responseText == "인증완료"){
+						$('#btn1').hide()
+						$('#btn2').show()
+						alert("인증성공")
+					}
+					if(result.responseText == "인증실패"){
+					$('#btn2').hide()
+            			$('#btn1').show()
+            			alert("인증실패")
+					}
+
+
             },
             complete : function(result, status){}
 
 
         })
-        $('#btn1').hide()
-		$('#accountBtn').show()
+<!--        $('#btn1').hide()-->
+<!--		$('#accountBtn').show()-->
 
 
     })
@@ -160,13 +175,23 @@ $(function(){
             data: JSON.stringify(data),
             contentType : "application/json",
             success : function(result, status){
-					console.log(result);
-					console.log(status);
+            	console.log(result)
+            	console.log(status)
+
+					alert("계좌 생성 성공!!!")
+					location.href = "/account/find"
+
+
 
             },
             error : function(result, status){
-            		console.log(result);
-					console.log(status);
+            console.log(result)
+            console.log(status)
+            		if(status == "error"){
+					alert("이미 계좌가 있습니다.")
+					location.href = "/account/find"
+
+					}
             },
             complete : function(result, status){}
 

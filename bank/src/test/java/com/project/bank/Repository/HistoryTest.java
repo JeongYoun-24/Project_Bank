@@ -37,11 +37,11 @@ public class HistoryTest {
     public void Test(){
 
 
-        String accountNumber = "3333-06-2980990";
-        log.info(accountNumber);
+      //  String accountNumber = "3333-06-2980990";
+      //  log.info(accountNumber);
 
-        List<History> histories = historyRepository.histryList(accountNumber);
-        log.info(histories);
+      //  List<History> histories = historyRepository.histryList(accountNumber);
+       // log.info(histories);
 
     }
 

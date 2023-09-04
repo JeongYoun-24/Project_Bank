@@ -1,6 +1,7 @@
 package com.project.bank.service.Bank;
 
 import com.project.bank.dto.AccoutDTO;
+import com.project.bank.dto.HistoryDTO;
 import com.project.bank.entity.Account;
 import com.project.bank.entity.History;
 import com.project.bank.entity.Member;
@@ -34,6 +35,13 @@ public class AccountServiceImpl  implements AccountService{
         Member member = memberRepository.findByMemberId(accoutDTO.getMember().getMemberId());
         Account account = new Account();
 
+        Account chkAccount = accountRepository.findByMember_MemberId(member.getMemberId());
+
+        if(chkAccount != null){
+
+            return "계좌있음";
+        }
+
 
 //      계좌 생성 난수 (랜덤값)
         String acount3333 = "3333";
@@ -46,13 +54,13 @@ public class AccountServiceImpl  implements AccountService{
 
         
         // 계좌 중복 확인
-//        Account accountList = accountRepository.findById(acount).orElseThrow(EntityExistsException::new);
-//        if(accountList.getAccountNumber() == acount){
-//
-//            int account4= (int)(Math.random() * 10)-1;
-//            int account5= (int)(Math.random() * 2000000)+1000000;
-//            acount = acount3333+m+0+account4+m+account5;
-//        }
+        Account accountList = accountRepository.findById(acount).orElseThrow(EntityExistsException::new);
+        if(accountList.getAccountNumber() == acount){
+
+            int account4= (int)(Math.random() * 10)-1;
+            int account5= (int)(Math.random() * 2000000)+1000000;
+            acount = acount3333+m+0+account4+m+account5;
+        }
 
         // DTO -> entiry
         account.setAccountNumber(acount);
@@ -129,6 +137,7 @@ public class AccountServiceImpl  implements AccountService{
         History history1 = History.builder()
                 .balance(accoutDTO.getBalance())
                 .memberName(name)
+                .saveBalance(balance)
                 .account(account)
                 .updateDate(LocalDateTime.now())
                 .chk("입금")
@@ -167,6 +176,7 @@ public class AccountServiceImpl  implements AccountService{
                 // 돈 보낸 계좌내역 업데이트
                 History history = History.builder()
                         .balance(Balance)              // 보낸금액
+                        .saveBalance(balance)                  // 변동후 금액
                         .memberName(member.getName()) // 받는사람 이름
                         .account(account)              // 보낸는사람 계좌
                         .updateDate(LocalDateTime.now())  // 보낸날짜
@@ -199,6 +209,7 @@ public class AccountServiceImpl  implements AccountService{
             History history1 = History.builder()
                     .balance(accoutDTO.getBalance())
                     .memberName(name)
+                    .saveBalance(balance2)
                     .account(account2)
                     .updateDate(LocalDateTime.now())
                     .chk("입금")
@@ -235,5 +246,50 @@ public class AccountServiceImpl  implements AccountService{
 
 
         return result;
+    }
+
+    @Override
+    public int loanAccount(HistoryDTO historyDTO,String accountNumber) {
+
+      Account account=accountRepository.findById(accountNumber).orElseThrow(EntityExistsException::new);
+
+      int savemoney =  account.getBalance()+historyDTO.getBalance();
+
+        account.setBalance(savemoney);
+        accountRepository.save(account);
+      log.info("대출받는금액+기존금액"+savemoney);
+      History history = History.builder()
+              .saveBalance(savemoney)
+              .balance(historyDTO.getBalance())
+              .memberName(historyDTO.getMemberName())
+              .updateDate(LocalDateTime.now())
+              .chk(historyDTO.getChk())
+              .account(account)
+              .build();
+        log.info("계좌내역"+history);
+        historyRepository.save(history);
+
+
+
+        return 0;
+    }
+
+    @Override
+    public AccoutDTO selectAccountMember(String name) {
+
+      Member member =   memberRepository.findByMemberId(name);
+      log.info("회원정보"+member);
+
+      Account account = accountRepository.findByMember_MemberId(member.getMemberId());
+
+      AccoutDTO accoutDTO = AccoutDTO.builder()
+              .accountNumber(account.getAccountNumber())
+              .balance(account.getBalance())
+              .password(account.getPassword())
+              .createDate(account.getCerateDate())
+              .member(member)
+              .build();
+
+        return accoutDTO;
     }
 }

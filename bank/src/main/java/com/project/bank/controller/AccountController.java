@@ -62,14 +62,15 @@ public class AccountController {
 
         log.info(member.getEmail());
         log.info(memberDTO.getEmail());
-        if(member.getEmail() != email){
+        if(member.getEmail().equals(email)){
+            log.info("인증 성공");
+            return  new ResponseEntity<String>("인증완료",HttpStatus.OK);
+        }else{
             log.info("인증 실패");
             return new ResponseEntity<String>("인증실패",HttpStatus.BAD_REQUEST);
         }
 
 
-
-        return  new ResponseEntity<String>("인증완료",HttpStatus.OK);
     }
 
 
@@ -87,7 +88,13 @@ public class AccountController {
                 .password(password)
                 .build();
 
-        accountService.register(accoutDTO);
+     String tatile = accountService.register(accoutDTO);
+
+     if(tatile == "계좌있음"){
+
+         return  new ResponseEntity<String>("생성실패",HttpStatus.BAD_REQUEST);
+     }
+
 
 
 
@@ -204,20 +211,6 @@ public class AccountController {
 
         log.info("금액 들어있는금액 "+account.getBalance());
 
-        int price = accoutDTO.getBalance() ;
-        int price2 = account.getBalance();
-
-
-
-        log.info("금액 들어있는금액 "+price);
-        log.info("금액 들어있는금액 "+price2);
-
-        int price3 = price2 - price;
-
-        log.info("금액 들어있는금액3 "+price3);
-
-        int price4 = price3+0000;
-        log.info("금액 들어있는금액4 "+price4);
 
         int result =0;
         try {
