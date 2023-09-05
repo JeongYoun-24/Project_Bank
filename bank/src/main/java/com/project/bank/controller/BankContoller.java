@@ -24,7 +24,7 @@ public class BankContoller {
     private final LoanService loanService;
     private final BankService bankService;
 
-    @GetMapping(value = "list")
+    @GetMapping(value = "/list")
     public String getBanklist(Model model){
 
         List<BankDTO> bankDTOList =  bankService.alllist();
@@ -35,7 +35,7 @@ public class BankContoller {
         return "Bank/Bank";
     }
 
-    @GetMapping(value = "find/{bankName}")
+    @GetMapping(value = "/find/{bankName}")
     public String getBankfind(@PathVariable("bankName")String bankName, Model model){
         log.info("대출상품 요청 ");
         log.info(bankName);

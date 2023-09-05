@@ -17,7 +17,7 @@ public class LoanHistory {
     @Column(name = "loan_no")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long loanNo;                    //번호
-    private String product_name;            // 상품명
+    private String productName;            // 상품명
     private String loanMoney;               // 갚은대출금액
     private String borrowed ;               // 빌린 금액 
     private String interest;                // 이자율

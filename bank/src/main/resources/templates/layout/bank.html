@@ -34,14 +34,14 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+        <div class="sidebar-heading border-bottom bg-light"><img style="width:150px;height:50px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZS74yfx000SiKWEnNeUIO-HWZzuOMLioY3A&usqp=CAU"></div>
         <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/board/list}">Board</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/board/list}">공지사항</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/account/register}">계좌생성</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/account/find}">계좌확인</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/bank/list}">대출</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">대출현황</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" th:href="@{/loan/loanList}">대출 현황</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">적금</a>
         </div>
     </div>
 
@@ -50,7 +50,7 @@
         <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <button class="btn btn-primary" id="sidebarToggle">메뉴</button>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -62,12 +62,12 @@
                             <a class="nav-link" href="/members/logout">로그아웃</a></li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">개인정보</a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#!">Action</a>
-                                <a class="dropdown-item" href="#!">Another action</a>
+                                <a class="dropdown-item" href="#!">마이페이지</a>
+                                <a class="dropdown-item" href="#!">알림</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#!">Something else here</a>
+                                <a class="dropdown-item" href="#!">저금통</a>
                             </div>
                         </li>
                     </ul>

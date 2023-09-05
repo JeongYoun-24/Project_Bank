@@ -4,12 +4,18 @@ import com.project.bank.dto.AccoutDTO;
 import com.project.bank.dto.HistoryDTO;
 import com.project.bank.dto.LoanHistoryDTO;
 import com.project.bank.dto.LoanProductDTO;
+import com.project.bank.entity.Account;
+import com.project.bank.repository.AccountRepository;
 import com.project.bank.repository.LoanProductRepository;
+import com.project.bank.repository.MemberRepository;
 import com.project.bank.service.Bank.AccountService;
 import com.project.bank.service.History.HistoryService;
 import com.project.bank.service.Loan.LoanService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/loan")
@@ -30,6 +37,8 @@ public class LoanBankController {
     private final LoanProductRepository loanProductRepository;
     private final AccountService accountService;
     private final HistoryService historyService;
+    private final MemberRepository memberRepository;
+
 
 
     @GetMapping(value = "/loanFind/{productNo}")
@@ -69,7 +78,7 @@ public class LoanBankController {
 
         LoanHistoryDTO loanHistoryDTO = LoanHistoryDTO.builder()
                 .borrowed(loanProductDTO.getLoanMoney())  // 대출 금액
-                .product_name(loanProductDTO.getProductName())  // 대출 상품 이름
+                .productName(loanProductDTO.getProductName())  // 대출 상품 이름
                 .interest(loanProductDTO.getInterest())         // 이자율
                 .loanDate(LocalDateTime.now())                   // 대출 일자
                 .loanMoney("0")                                  // 갚은 금액
@@ -93,10 +102,31 @@ public class LoanBankController {
     }
 
 
-    @GetMapping(value = "")
-    public String loanHistory(){
+    @GetMapping(value = {"/loanList","/loanList/{page}"})
+    public String loanHistory(@PathVariable("page") Optional<Integer> page,Principal principal,Model model){   // 대출 내역 보기
 
-        return "";
+        if(principal == null){
+
+            model.addAttribute("msg","로그인후 이용가능합니다.");
+            return "Member/login";
+        }
+
+        Pageable pageable = PageRequest.of(page.isPresent()?page.get():0, 10);
+         AccoutDTO accoutDTO = accountService.selectAccountMember(principal.getName());
+
+
+
+        Page<LoanHistoryDTO> loanHistoryList = loanService.loanHistoryList(accoutDTO.getAccountNumber(),pageable);
+        log.info(loanHistoryList.toString());
+
+        model.addAttribute("loanHistoryList",loanHistoryList);
+        model.addAttribute("account",accoutDTO);
+        model.addAttribute("maxPage", 10);// 한줄에 보여질 페이지 번호 개수
+        model.addAttribute("page", pageable.getPageNumber());// 총 페이지 수
+
+
+
+        return "loan/loanhistory";
     }
 
 

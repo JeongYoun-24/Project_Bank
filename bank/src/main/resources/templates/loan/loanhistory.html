@@ -24,61 +24,108 @@
 	<div class="container" id="sss">
 
 
-		<div class="row">
-			<div class="col-3">
-				<img style="width:300px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKTPIf3lkUDtzhzC04iz810_m89gZ5TnMkMg&usqp=CAU">
 
-			</div>
-			<div class="col-3"></div>
-			<div class="col-3">
-				<div>
+		<div class="row mt-3 w-75 m-auto">
+
+			<div class="col">
+
+
+
+				<div class="container" id="Acount">
+					<h5 class="">[[${account.accountNumber}]]</h5>
+
 
 					<div>
-						<h5>대출 상품</h5>
-						<span th:text="${dto.productName}">
+						<div>
+							<table class="table">
+								<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">대출받는 날짜</th>
+									<th scope="col">대출 상품이름</th>
+									<th scope="col">대출 금액</th>
+									<th scope="col">이자율</th>
+									<th scope="col">변제 금액</th>
+									<th scope="col"></th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr th:each="list,hStat : ${loanHistoryList}">
+									<th scope="row" th:text="${hStat.count}"></th>
+									<td>[[${#temporals.format(list.loanDate,'yyyy-MM-dd')}]]</td>
+									<td th:text="${list.productName}"></td>
+									<td  >
 
-						</span>
-					</div>
-					<div class="mt-2">
-						<h5>대출 금액</h5>
-						<span th:text="|${#numbers.formatInteger(dto.loanMoney, 0, 'COMMA')}원|"></span>
+										<span th:text="${#numbers.formatInteger(list.borrowed, 3, 'COMMA') + '원'}" class="d-flex ">
 
-						</span>
-					</div>
-					<div class="mt-2">
-						<h5>대출 이자율</h5>
-						<span >[[${dto.interest}]]%</span>
-					</div>
-					<div class="mt-2">
-						<h5>대출 이자율</h5>
-						<span >[[${dto.repaymentDate}]]</span>
-					</div>
+										</span>
 
-					<div class="mt-3">
-						<div class="row">
-							<div class="col-6">
-								<input type="hidden" id="productNo" th:value="${dto.productNo}">
-								<input type="hidden" id="bankNo" th:value="${dto.bank.bankNo}">
 
-								<button class="btn border-black" data-bs-toggle="modal" data-bs-target="#exampleModal">대출받기</button>
+									</td>
+									<td  th:text="${list.interest}">
+									</td>
+									<td  th:text="${list.loanMoney}">
+									</td>
+
+
+								</tr>
+
+								</tbody>
+							</table>
+							<div>
+								<div>
+									<button class="btn border border-1 border-black" ><a href="#">대출변제 내역</a> </button>
+								</div>
+
 							</div>
 
-							<div class="col-6">
-								<button class="btn border-black">
-									<a th:href="@{'/bank/find/'+${dto.bank.bankName}}" style="color: black;">뒤로가기</a>
-								</button>
-							</div>
 						</div>
+						<!--<div th:with="start=${(historyList.number/maxPage)*maxPage+1},end=(${historyList.totalPages == 0 ? 1 : ( start + (maxPage-1) < historyList.totalPages ? start + (maxPage-1):historyList.totalPages)})" class="mt-3  d-flex justify-content-center">
+
+							<nav aria-label="Page navigation example justify-content-end align-items-center">
+								<ul class="pagination justify-content-end " >
+
+
+									<li class="page-item" th:classappend="${historyList.number eq 0} ? 'disabled' ">
+										<a class="page-link"
+										   th:href="@{'/history/list/'+${account.accountNumber}+'/'+${historyList.number-1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+										</svg></a>
+									</li>
+
+									<li class="page-item" th:each="page : ${#numbers.sequence(start, end)}"
+										th:classappend="${historyList.number eq page-1} ? 'active ' : '' ">
+										<a class="page-link"
+										   th:href="@{'/history/list/'+${account.accountNumber}+'/'+${page-1}}" >[[${page}]]</a>
+									</li>
+
+									<li class="page-item" th:classappend="${historyList.number+1 ge historyList.totalPages} ? 'disabled' ">
+										<a class="page-link"
+										   th:href="@{'/history/list/'+${account.accountNumber}+'/'+${historyList.number+1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+										</svg></a>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>-->
+
+
+
 					</div>
+
+
+
+
 
 				</div>
 
+
+
+
 			</div>
 
-
-
 		</div>
-
 
 
 
@@ -102,15 +149,15 @@
 				<div class="modal-body">
 					<div >
 						<div class="">
-							<input type="checkbox"   id="chkBtn"  >
+							<input type="checkbox" >
 							<span>전체 동의</span>
 						</div>
 						<div class="mt-3">
-							<input type="checkbox" class="chk checked1" name="chk" >
+							<input type="checkbox" id="chk1">
 							<span>이용약관(필수)</span>
 						</div>
 
-						<textarea  style="width:450px; height:100px; " readonly>
+						<textarea  style="width:450px; height:100px; ">
 제1장 총칙
 
 제1조 (목적)
@@ -121,10 +168,10 @@
 						</span>
 
 						<div class="">
-							<input type="checkbox" class="chk checked2" name="chk"  >
+							<input type="checkbox" id="chk2" >
 							<span>개인정보의 수집 및 이용에 대한 동의 (필수)</span>
 						</div>
-						<textarea maxlength="10" style="width:450px; height:100px;" readonly>
+						<textarea maxlength="10" style="width:450px; height:100px;">
 1. 수집하는 개인정보 항목
 문화체육관광부 대표 누리집의 이용자 참여와 이용통계 분석 등의 서비스를 위해 회원 가입시 아래의 개인정보를 수집하고 있습니다.
 
@@ -146,10 +193,10 @@
 
 						</textarea>
 						<div class="">
-							<input type="checkbox"  name="chk" >
+							<input type="checkbox" >
 							<span>개인정보의 수집 및 이용에 대한 동의 (선택)</span>
 						</div>
-						<textarea maxlength="10" style="width:450px; height:100px;" readonly>
+						<textarea maxlength="10" style="width:450px; height:100px;">
 수집하는 개인정보 선택항목
 거주지역
 
@@ -185,26 +232,6 @@
 <script layout:fragment="script"    th:inline="javascript">
 	$(function(){
 
-	$('#chkBtn').click(function(){
-		if($("#chkBtn").prop("checked")){
-			$("input[name=chk]").prop("checked", true);
-		}else{
-			$("input[name=chk]").prop("checked", false);
-		}
-
-		$('input[name=chk]').click(function(){
-			if($("input[name=chk]:checked").length==3){
-				$("#chkBtn").prop("checked", true);
-			}else{
-				$("#chkBtn").prop("checked", false);
-			}
-
-		})
-
-
-	})
-
-
 	$('#loanBtn').click(function(){
 	 		var url = "/loan/product";
             var data = {
@@ -213,10 +240,7 @@
 
             };
 
-            var checked = $(".chk:checked").length;
-			if($(".checked1").is(":checked") == true && $(".checked2").is(":checked") == true){
-				
-				$.ajax({
+            $.ajax({
             type : "POST",
             async: true,
             url : "/loan/product",
@@ -226,25 +250,19 @@
             		console.log(result.responseText);
 					console.log(status);
 					alert("대출 성공")
-					location.href="/account/find"
+					location.href="/account/find
 
             },
             error : function(result, status){
             		console.log(result.responseText);
 					console.log(status);
 					if(result.responseText=='거래성공'){
-					location.href="/account/find"
+					location.href="/account/find
 					}
-					alert("오류 발생")
+
             },
             complete : function(result, status){}
         }) <!-- end-->
-			}else{
-				alert('필수 동의 체크 하세요')
-			}
-
-
-     
 
 	})
 
