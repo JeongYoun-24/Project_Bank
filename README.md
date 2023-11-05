@@ -1,4 +1,4 @@
-# PortfolioBank
+![BankERD](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/d573c9ac-3d09-40cb-a528-66ef6566cd1e)# PortfolioBank
 은행 웹 사이트 개인 프로젝트 포트폴리오
 
 # 소개
@@ -27,7 +27,8 @@
 
 # E-R 다이어그램
 
-![은행 프로젝트 erd](https://github.com/oals/PortfolioBank/assets/136543676/287f1ddb-4e14-4fa2-8248-1af365fb7412)
+![은행 프로젝트 erd](![BankERD](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/37d3294a-57ee-4bb8-b056-fce825204fd4)
+)
 
 https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 # 핵심 기능 및 페이지 소개
