@@ -52,12 +52,11 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 <HR>
 
-<H3>로그인 로그아웃</H3>
+<H3>로그인 페이지</H3>
 <BR>
 
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/f7e17e95-006b-4b80-a25e-df0b82b238ff" height="350">
+<img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/1c9c3deb-7d83-468d-b88c-0173ffbe077d" height="350">
 
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/8e7173e9-fd9b-4a81-aced-a3ac695a9cba" height="350">
 
 <UL>
  <LI>로그인과 로그아웃 기능을 구현 했습니다.</LI>
