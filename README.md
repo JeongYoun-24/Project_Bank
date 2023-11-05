@@ -113,13 +113,16 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 ![loanProduct PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/f33df648-d45b-4c68-bbec-1ec9d620c5a3)
 
-![loanDate PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c55478b8-32f2-40c2-9754-5f70ceae0a06)
+![loanChecked PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/a1c10b9f-9aa5-4286-9871-53d78374e806)
+
+
 
 
 
 <BR>
 <UL>
  <LI> 대출 받을 상품을 계좌를 연결 합니다.</LI>
+ <LI> 대출 받기 위해서는 약관동의를 해야합니다.</LI>
   <LI> 똑같은 대출상품은 다시 갚을때까지 받을수없습니다.</LI>
 </UL>
 <BR>
@@ -128,25 +131,25 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 
 
-![개인 프로젝트 bank 적금 가입 페이지3](https://github.com/oals/PortfolioBank/assets/136543676/b8aa3cb1-900e-42db-acd3-e82d613a65c3)
+![loanDate PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c55478b8-32f2-40c2-9754-5f70ceae0a06)
 
 
 
 <BR>
 <UL>
- <LI> 가입된 적금 정보는 메인 페이지의 프로필을 통해 확인 할 수 있습니다. </LI>
+ <LI> 대출 받은후 대출 내역에서 확인가능합니다. </LI>
 </UL>
 <BR>
 <BR>
 
+![aaa](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/5e6df524-0f37-435f-a316-dcf9e3e24b9d)
 
-![개인 프로젝트 bank 적금 가입 페이지5](https://github.com/oals/PortfolioBank/assets/136543676/7c7ce045-de49-4159-bb9d-0a55e4d6e983)
 
 
 <BR>
 <UL>
- <LI> 한 달을 기준으로 계좌에서 적금액이 자동으로 빠져 나가고 적금 만기일이 되었는지 검사합니다 </LI>
-  <LI> 적금 만기일에 도달하였을 시 적금된 금액과 이자를 계좌에 반환해줍니다. </LI>
+ <LI> 받은 계좌 입력시  </LI>
+  <LI> 자신의계좌에서 다른 계좌로 돈 이체 가능합니다. </LI>
 </UL>
 <BR>
 <BR>
@@ -158,9 +161,10 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 # 프로젝트를 통해 느낀 점과 소감
 
 
-이번 프로젝트는 제작기간이 짧았던 만큼 많은 기능을 넣지 못했다. <BR>
-그럼에도 이 프로젝트가 나에게 의미 있었던 이유는 학원이 아닌 스프링 부트 책을 통해서 <BR> 배운 DTO TO ENTTIY 혹은 ENTTITY TO DTO 등의 정석적인 코드 구조를 실험 해볼 수 있어서이다. <BR>
-이를 통해서 DTO를 어떤 구조로 코딩 해야 하는 지 좀 더 알게 된 것 같다.
+이번 프로젝트는 제작기간이 짧았던 만큼 많은 기능을 넣지 못했습니다. <BR>
+처음에는 ERD로 데이터베이스 설계할때만 2명에서 소통하며 도움을 받았습니다.
+그럼에도 이 프로젝트가 나에게 의미 있었던 이유는 학원이 아닌 스프링 부트 책을 통해서 스스로  <BR> 배운 DTO TO ENTTIY 혹은 ENTTITY TO DTO 등의 정석적인 코드 구조를 실험 해볼 수 있어서이다. <BR>
+이를 통해서 설계 단계부터 마무리 까지 하는 방법을 좀더 수월하게 하는법을 배울수있었습니다. 
 
 
 
