@@ -11,6 +11,7 @@
   <LI>개인 프로젝트</LI>
 </UL>
 
+![main2 PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c9e0d925-250b-4736-adbb-658e1b6baaf3)
 
 
 
