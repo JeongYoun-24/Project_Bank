@@ -57,26 +57,24 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 <img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/1c9c3deb-7d83-468d-b88c-0173ffbe077d" height="350">
 
+<img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/793f5699-986f-4006-8991-b0713e723c78" height="350">
+
 
 <UL>
- <LI>로그인과 로그아웃 기능을 구현 했습니다.</LI>
+ <LI>로그인과 회원가입 기능을 구현 했습니다.</LI>
 </UL>
 <BR>
 
 <HR>
 
-<H3>영화 상세 페이지</H3>
+<H3>회원 계좌 페이지</H3>
 <BR>
 
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/eb07255e-cf1d-4fd4-baf1-a94383bb6c1b" height="350">
-
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/01e04713-8a48-46b8-aed9-a9135da04929" height="350">
-
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/c597b592-4caf-4710-a70b-b1886570e010" height="350">
+<img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/1129c4b0-f4e3-4075-96c0-f2934e4b357f" height="350">
 
 <BR>
 <UL>
- <LI>해당 영화의 정보, 평점, 줄거리, 제작사를 확인 할 수 있게 만들었습니다.</LI>
+ <LI>계좌생성후 보여지는 페이지입니다..</LI>
 </UL>
 <BR>
 
@@ -87,12 +85,7 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 <BR>
 
 
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/e9933fb6-cafe-4bab-b39d-a2b318d1ee8d" height="350">
 
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/2df98309-39ca-43bd-8197-e761f1341361" height="350">
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/c30e5df8-803f-437a-acf7-7a3b7e2e8610" height="350">
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/0de27d3c-9047-4e6e-b1ed-043b4a16fb42" height="350">
-<img src="https://github.com/oals/portfolioMovie/assets/136543676/7027e176-2c2f-484f-a407-ad117bd84a5a" height="350">
 
 
 
