@@ -29,7 +29,7 @@
 
 ![은행 프로젝트 erd](https://github.com/oals/PortfolioBank/assets/136543676/287f1ddb-4e14-4fa2-8248-1af365fb7412)
 
-
+https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 # 핵심 기능 및 페이지 소개
 
 <H3>메인 페이지</H3>
