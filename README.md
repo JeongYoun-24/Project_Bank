@@ -1,37 +1,33 @@
-# portfolioMovie
-2명에서 에서 협업해서 ERD 만들고 시작한 개인 프로젝트
+# PortfolioBank
+은행 웹 사이트 개인 프로젝트 포트폴리오
 
 # 소개
-계좌생성및 입금 기능 구현한 개인프로젝트입니다.
+ 개인의 계좌를 사이트에 등록 시켜 사용자 간의 이체와 적금 가입이 가능한 사이트 입니다.  
 
 
 # 제작기간 & 참여 인원
 <UL>
-  <LI>2023.09.18 ~ 2023.11.02</LI>
+  <LI>2023.09.01 ~ 2023.09.07</LI>
   <LI>개인 프로젝트</LI>
 </UL>
-# portfolioMovie
-영화 예매 어플 모바일 개인 프로젝트 포트폴리오
 
-# 소개
-영화 예매, 영화 검색 등을 할 수 있는 안드로이드 어플입니다.
-
-
-# 제작기간 & 참여 인원
-<UL>
-  <LI>2023.09.18 ~ 2023.11.02</LI>
-  <LI>개인 프로젝트</LI>
-</UL>
 
 
 
 # 사용기술
-![js](https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=JavaScript&logoColor=white)
-![js](https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=JavaScript&logoColor=white)
-![js](https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/Java-FF0000?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/IntelliJ-004088?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/security-6DB33F?style=for-the-badge&logo=JavaScript&logoColor=white)
 
+![js](https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 
 # E-R 다이어그램
+
+![은행 프로젝트 erd](https://github.com/oals/PortfolioBank/assets/136543676/287f1ddb-4e14-4fa2-8248-1af365fb7412)
 
 
 # 핵심 기능 및 페이지 소개
