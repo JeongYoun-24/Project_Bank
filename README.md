@@ -47,7 +47,7 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 
 <UL>
- <LI>현재 상영중인 혹은 상영 예정작들을 확인 할 수 있습니다.</LI>
+ <LI>메인페이지 입니다.</LI>
 </UL>
 
 <HR>
