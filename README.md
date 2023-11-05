@@ -97,32 +97,30 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 <HR>
 
-<H3>적금 가입 페이지</H3>
+<H3>대출가능 상품 페이지</H3>
 <BR>
 
-![개인 프로젝트 bank 적금 가입 페이지1](https://github.com/oals/PortfolioBank/assets/136543676/edde13e5-cf82-4287-8e11-6455e1ef971f)
+![loanTOP3 PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/da3c85c4-2e29-4c6b-915c-5acad176122d)
+
 
 <BR>
 <UL>
- <LI> 메인 페이지 하단의 적금란을 통해 적금에 가입 할 수 있습니다.</LI>
-  <LI> 하나의 적금에만 가입 할 수 있습니다.</LI>
+ <LI> 여러은행에서 대출상품 확인가능 합니다.</LI>
+  <LI> 하나의 은행에서만 대출 받을 수 있습니다.</LI>
 </UL>
 <BR>
 <BR>
 
+![loanProduct PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/f33df648-d45b-4c68-bbec-1ec9d620c5a3)
 
+![loanDate PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c55478b8-32f2-40c2-9754-5f70ceae0a06)
 
-![개인 프로젝트 bank 적금 가입 페이지2](https://github.com/oals/PortfolioBank/assets/136543676/5fc4e70f-637d-4dc5-81c4-fe5782929f68)
-
-
-
-![개인 프로젝트 bank 적금 가입 페이지4](https://github.com/oals/PortfolioBank/assets/136543676/4514452e-10fc-4c4c-9251-5760c8150d11)
 
 
 <BR>
 <UL>
- <LI> 적금액이 빠져나갈 계좌를 연결 합니다.</LI>
-  <LI> 해당 계좌에 첫 1회 적금액이 존재하지 않을 경우 가입 실패로 이어집니다.</LI>
+ <LI> 대출 받을 상품을 계좌를 연결 합니다.</LI>
+  <LI> 똑같은 대출상품은 다시 갚을때까지 받을수없습니다.</LI>
 </UL>
 <BR>
 <BR>
