@@ -81,21 +81,16 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 <HR>
 
-<H3>영화 예매 페이지</H3>
+<H3>계좌 내역 페이지</H3>
 <BR>
 
+<img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/791d50b9-4bd7-4e96-ab24-2f9fc8b0456b" height="350">
 
-
-
-
-
-
-
-
+<img src="https://github.com/JeongYoun-24/Project_Bank/assets/126854252/b08b793d-2561-432c-a172-70e8586d134d" height="350">
 
 <BR>
 <UL>
- <LI> 입금 받는 계좌의 존재유무를 판단하고 입금 하려는 계좌의 잔액을 입금 하려는 금액과 비교 후 비교 결과에 따른 처리를 합니다. </LI>
+ <LI> 계좌내역을 보기위해서는 비밀번호 입력후 일치 여부 파악후 계좌내역이 보여집니다. </LI>
 </UL>
 <BR>
 
