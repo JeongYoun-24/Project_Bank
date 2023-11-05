@@ -29,6 +29,7 @@
 
 ![BankERD](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/d573c9ac-3d09-40cb-a528-66ef6566cd1e)
 
+# ERD 보러가기 
 https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 # 핵심 기능 및 페이지 소개
 
