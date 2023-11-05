@@ -36,9 +36,9 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 
 <H3>메인 페이지</H3>
 <BR>
-![main2.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/c3b2cede-dfdb-40c7-ad0d-5ed137438a20/f6927f9b-afe0-4a5c-85ff-4c5a1f144332/main2.png)
 
-<img src="[https://github.com/oals/portfolioMovie/assets/136543676/80fdb057-d991-40d2-a92e-8228a3e5ebf1](https://prod-files-secure.s3.us-west-2.amazonaws.com/c3b2cede-dfdb-40c7-ad0d-5ed137438a20/f6927f9b-afe0-4a5c-85ff-4c5a1f144332/main2.png)" height="350">
+
+<img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c3b2cede-dfdb-40c7-ad0d-5ed137438a20/f6927f9b-afe0-4a5c-85ff-4c5a1f144332/main2.png" height="350">
 
 <img src="https://github.com/oals/portfolioMovie/assets/136543676/cbedb271-b465-4bd2-b697-a9de43502fe9" height="350">
 
