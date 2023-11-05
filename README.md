@@ -11,7 +11,7 @@
   <LI>개인 프로젝트</LI>
 </UL>
 
-![main2 PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c9e0d925-250b-4736-adbb-658e1b6baaf3)
+
 
 
 
@@ -38,7 +38,9 @@ https://www.erdcloud.com/d/tmnaHift9n7myHw5a
 <BR>
 
 
-<img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c3b2cede-dfdb-40c7-ad0d-5ed137438a20/f6927f9b-afe0-4a5c-85ff-4c5a1f144332/main2.png" height="350">
+<img src="[https://prod-files-secure.s3.us-west-2.amazonaws.com/c3b2cede-dfdb-40c7-ad0d-5ed137438a20/f6927f9b-afe0-4a5c-85ff-4c5a1f144332/main2.png](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c9e0d925-250b-4736-adbb-658e1b6baaf3)" height="350">
+![main2 PNG](https://github.com/JeongYoun-24/Project_Bank/assets/126854252/c9e0d925-250b-4736-adbb-658e1b6baaf3)
+
 
 <img src="https://github.com/oals/portfolioMovie/assets/136543676/cbedb271-b465-4bd2-b697-a9de43502fe9" height="350">
 
